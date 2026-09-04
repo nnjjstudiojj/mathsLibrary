@@ -1,5 +1,7 @@
 package com.nnjjstudiojj.physics;
 
+import java.math.*;
+
 public class Vector2 {
 
   private float x;
@@ -50,6 +52,7 @@ public class Vector2 {
     Vector2 result = new Vector2(x, y);
     return result;
   }
+
   public float vectorDotProduct(Vector2 vectorA, Vector2 vectorB) {
 
     float x = vectorA.x * vectorB.x;
@@ -57,5 +60,23 @@ public class Vector2 {
 
     float dotProduct = x + y;
     return dotProduct;
+  }
+
+  public float vectorMagnitude(Vector2 vector) {
+
+    double addition = vector.x * vector.x + vector.y * vector.y;
+    float magnitude = (float) Math.sqrt(addition);
+    return magnitude;
+  }
+
+  public Vector2 vectorNormalisation(Vector2 vector) {
+
+    float magnitude = vectorMagnitude(vector);
+    
+    float x = vector.x / magnitude;
+    float y = vector.y / magnitude;
+
+    Vector2 result = new Vector2(x, y);
+    return result;
   }
 }
