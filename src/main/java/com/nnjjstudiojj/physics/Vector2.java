@@ -29,23 +29,23 @@ public class Vector2 {
     return result;
   }
 
-  public Vector2 vectorScalarMultiplication(Vector2 vector, Vector2 scalar) {
+  public Vector2 vectorScalarMultiplication(Vector2 vector, float scalar) {
 
-    float x = vector.x * scalar.x;
-    float y = vector.y * scalar.y;
+    float x = vector.x * scalar;
+    float y = vector.y * scalar;
 
     Vector2 result = new Vector2(x, y);
     return result;
   }
 
-  public Vector2 vectorScalarDivision(Vector2 vector, Vector2 scalar) {
+  public Vector2 vectorScalarDivision(Vector2 vector, float scalar) {
 
-    if (scalar.x == 0 || scalar.y == 0) {
+    if (scalar == 0) {
       throw new ArithmeticException();
     }
 
-    float x = vector.x / scalar.x;
-    float y = vector.y / scalar.y;
+    float x = vector.x / scalar;
+    float y = vector.y / scalar;
 
     Vector2 result = new Vector2(x, y);
     return result;
