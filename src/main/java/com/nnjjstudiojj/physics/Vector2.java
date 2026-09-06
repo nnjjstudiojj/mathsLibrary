@@ -1,7 +1,5 @@
 package com.nnjjstudiojj.physics;
 
-import java.math.*;
-
 public class Vector2 {
 
   private float x;
@@ -13,70 +11,62 @@ public class Vector2 {
     this.y = y;
   }
 
-  public Vector2 vectorAddition(Vector2 vectorA, Vector2 vectorB) {
+  public void vectorAddition(Vector2 addend) {
 
-    float x = vectorA.x + vectorB.x;
-    float y = vectorA.y + vectorB.y;
-
-    Vector2 result = new Vector2(x, y);
-    return result;
+    x = x + addend.x;
+    y = y + addend.y;
   }
 
-  public Vector2 vectorSubtraction(Vector2 minuend, Vector2 subtrahend) {
+  public void vectorSubtraction(Vector2 subtrahend) {
 
-    float x = minuend.x - subtrahend.x;
-    float y = minuend.y - subtrahend.y;
-
-    Vector2 result = new Vector2(x, y);
-    return result;
+    x = x - subtrahend.x;
+    y = y - subtrahend.y;
   }
 
-  public Vector2 vectorScalarMultiplication(Vector2 vector, float scalar) {
+  public void vectorScalarMultiplication(float scalar) {
 
-    float x = vector.x * scalar;
-    float y = vector.y * scalar;
-
-    Vector2 result = new Vector2(x, y);
-    return result;
+    x = x * scalar;
+    y = y * scalar;
   }
 
-  public Vector2 vectorScalarDivision(Vector2 vector, float scalar) {
+  public void vectorScalarDivision(float scalar) { // unresolvable issue with floating point numbers, give leniency to 3 d.p
 
     if (scalar == 0) {
       throw new ArithmeticException();
     }
 
-    float x = vector.x / scalar;
-    float y = vector.y / scalar;
-
-    Vector2 result = new Vector2(x, y);
-    return result;
+    x = x / scalar;
+    y = y / scalar;
   }
 
-  public float vectorDotProduct(Vector2 vectorA, Vector2 vectorB) {
+  public float vectorDotProduct(Vector2 otherVector) {
 
-    float x = vectorA.x * vectorB.x;
-    float y = vectorA.y * vectorB.y;
-
-    float dotProduct = x + y;
+    float dotProduct = x * otherVector.x + y * otherVector.y;
     return dotProduct;
   }
 
-  public float vectorMagnitude(Vector2 vector) {
+  public float vectorMagnitude() {
 
-    double addition = vector.x * vector.x + vector.y * vector.y;
+    double addition = x * x + y * y;
     float magnitude = (float) Math.sqrt(addition);
     return magnitude;
   }
 
-  public Vector2 vectorNormalisation(Vector2 vector) {
+  public void vectorNormalisation() {
 
-    float magnitude = vectorMagnitude(vector);
+    float magnitude = vectorMagnitude();
     
-    float x = vector.x / magnitude;
-    float y = vector.y / magnitude;
+    x = x / magnitude;
+    y = y / magnitude;
+  }
 
-    Vector2 result = new Vector2(x, y);
-    return result;
+  public float getX() {
+
+    return this.x;
+  }
+
+  public float getY() {
+
+    return this.y;
   }
 }

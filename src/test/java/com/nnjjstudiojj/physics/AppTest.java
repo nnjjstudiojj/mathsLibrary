@@ -1,16 +1,18 @@
 package com.nnjjstudiojj.physics;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
 public class AppTest {
 
-  public void main(String[] args) {
+  @Test
+  void vectorClassTest() {
 
-    Vector2 vectorOne = new Vector2(5.6f, 9.9f);
-    Vector2 vectorTwo = new Vector2(8.9f, 10.1f);
+    Vector2 vectorA = new Vector2( 1, 6);
+    // Vector2 vectorB = new Vector2(7, 11);
 
-    Vector2 vectorThree = new Vector2(0, 0);
-    vectorThree.vectorAddition(vectorOne, vectorTwo);
-
+    vectorA.vectorNormalisation();
+    assertEquals(0.986393f, vectorA.getY(), 0.0001f);
   }
 }
