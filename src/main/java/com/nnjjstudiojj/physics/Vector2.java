@@ -1,6 +1,6 @@
 package com.nnjjstudiojj.physics;
 
-public class Vector2 {
+public class Vector2 { // unresolvable issue with floating point numbers, give leniency to 3 d.p
 
   private float x;
   private float y;
@@ -29,7 +29,7 @@ public class Vector2 {
     y = y * scalar;
   }
 
-  public void vectorScalarDivision(float scalar) { // unresolvable issue with floating point numbers, give leniency to 3 d.p
+  public void vectorScalarDivision(float scalar) { 
 
     if (scalar == 0) {
       throw new ArithmeticException();
