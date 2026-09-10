@@ -6,7 +6,7 @@ public class Vector2 { // unresolvable issue with floating point numbers, give l
   private float y;
 
   public Vector2 (float x, float y) {
-
+    
     this.x = x;
     this.y = y;
   }
