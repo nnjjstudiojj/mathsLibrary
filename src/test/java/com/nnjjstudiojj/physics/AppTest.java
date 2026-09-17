@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test;
 public class AppTest {
 
   @Test
-  void vectorClassTest() {
+  void matrixClassTest() {
 
-    Vector2 vectorA = new Vector2( 1, 6);
-    // Vector2 vectorB = new Vector2(7, 11);
+    Matrix2 matrix2 = new Matrix2(1, 0, 1, 0);
 
-    vectorA.vectorNormalisation();
-    assertEquals(0.986393f, vectorA.getY(), 0.0001f);
+    assertEquals(1, matrix2.getElement(0, 0));
   }
 }

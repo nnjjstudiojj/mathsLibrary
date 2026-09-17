@@ -19,7 +19,7 @@ public class Matrix2 {
         return identityMatrix2;
     }
 
-    public static Matrix2 rotationMatrix(double radians) {
+    public static Matrix2 rotationMatrix(double radians) { // anti-clockwise rotation
 
         float sine = (float) Math.sin(radians);
         float cosine = (float) Math.cos(radians);
@@ -36,13 +36,27 @@ public class Matrix2 {
         return scalingMatrix2;
     }
 
-    public Matrix2 matrixMultiplication(Matrix2 otherMatrix) {
+    public void matrixMultiplication(Matrix2 otherMatrix) {
 
-        float a = matrix[0][0] * otherMatrix.getElement(0, 0) + 
+        float a = matrix[0][0] * otherMatrix.getElement(0, 0) + matrix[0][1] * otherMatrix.getElement(1, 0);
+        float b = matrix[0][0] * otherMatrix.getElement(0, 1) + matrix[0][1] * otherMatrix.getElement(1, 1);
+        float c = matrix[1][0] * otherMatrix.getElement(0, 0) + matrix[1][1] * otherMatrix.getElement(1, 0);
+        float d = matrix[1][0] * otherMatrix.getElement(0, 1) + matrix[1][1] * otherMatrix.getElement(1, 1);
+
+        matrix[0][0] = a;
+        matrix[0][1] = b;
+        matrix[1][0] = c;
+        matrix[1][1] = d;
     }
 
     public float getElement(int row, int column) {
 
         return matrix[row][column];
+    }
+
+    public float determinant() {
+
+        float determinant = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
+        return determinant;
     }
 }
