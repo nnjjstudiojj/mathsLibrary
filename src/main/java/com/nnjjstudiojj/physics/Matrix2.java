@@ -14,9 +14,10 @@ public class Matrix2 {
 
     public static Matrix2 identityMatrix() {
 
-        Matrix2 identityMatrix2 = new Matrix2(1, 0, 0, 1);
-
-        return identityMatrix2;
+        return new Matrix2(
+            1, 0, 
+            0, 1
+        );
     }
 
     public static Matrix2 rotationMatrix(double radians) { // anti-clockwise rotation
@@ -24,16 +25,18 @@ public class Matrix2 {
         float sine = (float) Math.sin(radians);
         float cosine = (float) Math.cos(radians);
 
-        Matrix2 rotationMatrix2 = new Matrix2(cosine, -sine, sine, cosine);
-
-        return rotationMatrix2;
+        return new Matrix2(
+            cosine, -sine,
+            sine, cosine
+        );
     }
 
     public static Matrix2 scalingMatrix(float scalingX, float scalingY) {
 
-        Matrix2 scalingMatrix2 = new Matrix2(scalingX, 0, 0, scalingY);
-        
-        return scalingMatrix2;
+        return new Matrix2(
+            scalingX, 0, 
+            0, scalingY
+        );
     }
 
     public void matrixMultiplication(Matrix2 otherMatrix) {
@@ -50,6 +53,12 @@ public class Matrix2 {
     }
 
     public float getElement(int row, int column) {
+
+        if (row < 0 || row >= 2 || column < 0 || column >= 2) {
+            throw new IndexOutOfBoundsException (
+                "Matrix indice must be between 0 & 1"
+            );
+        }
 
         return matrix[row][column];
     }
