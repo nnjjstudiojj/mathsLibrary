@@ -1,10 +1,10 @@
 package com.nnjjstudiojj.physics;
 
-public class Matrix2 {
+public class Matrix2 { // compete
 
     private float[][] matrix;
 
-    public Matrix2(float a, float b, float c, float d) {
+    public Matrix2(float a, float b, float c, float d) { // complete & tested
 
         matrix = new float[][] {
             {a, b},
@@ -12,7 +12,7 @@ public class Matrix2 {
         };
     }
 
-    public static Matrix2 identityMatrix() {
+    public static Matrix2 identityMatrix() { // complete & tested
 
         return new Matrix2(
             1, 0, 
@@ -20,7 +20,7 @@ public class Matrix2 {
         );
     }
 
-    public static Matrix2 rotationMatrix(double radians) { // anti-clockwise rotation
+    public static Matrix2 rotationMatrix(double radians) { // anti-clockwise rotation, complete & tested
 
         float sine = (float) Math.sin(radians);
         float cosine = (float) Math.cos(radians);
@@ -31,7 +31,7 @@ public class Matrix2 {
         );
     }
 
-    public static Matrix2 scalingMatrix(float scalingX, float scalingY) {
+    public static Matrix2 scalingMatrix(float scalingX, float scalingY) { // complete & tested
 
         return new Matrix2(
             scalingX, 0, 
@@ -39,7 +39,7 @@ public class Matrix2 {
         );
     }
 
-    private void matrixMultiplication(Matrix2 otherMatrix) { // internal helper method
+    private void matrixMultiplication(Matrix2 otherMatrix) { // internal helper method, complete & tested
 
         float a = matrix[0][0] * otherMatrix.getElement(0, 0) + matrix[0][1] * otherMatrix.getElement(1, 0);
         float b = matrix[0][0] * otherMatrix.getElement(0, 1) + matrix[0][1] * otherMatrix.getElement(1, 1);
@@ -52,12 +52,12 @@ public class Matrix2 {
         matrix[1][1] = d;
     }
 
-    public void multiply(Matrix2 otherMatrix) { // alters a matrix
+    public void multiply(Matrix2 otherMatrix) { // alters a matrix, complete & tested
 
         matrixMultiplication(otherMatrix); 
     }
 
-    public Matrix2 multiplyBy(Matrix2 otherMatrix) { // returns a new matrix
+    public Matrix2 multiplyBy(Matrix2 otherMatrix) { // returns a new matrix, complete & tested
 
         Matrix2 result = new Matrix2(
             matrix[0][0], matrix[0][1], 

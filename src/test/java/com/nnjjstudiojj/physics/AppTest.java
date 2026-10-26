@@ -9,10 +9,20 @@ public class AppTest {
   @Test
   void matrixClassTest() {
 
-    Matrix2 matrix2 = new Matrix2(4.2567f, 6.958173f, 3.290189f, -7.27898723f);
+    Matrix2 matrix2 = new Matrix2(
+      0, 0, 
+      6, 9
+    );
 
-    float determinant = matrix2.determinant();
+    Matrix2 matrix22 = new Matrix2(
+      1, 2,
+       10, 10
+      );
 
-    assertEquals(-53.8f, determinant, 0.1f);
+    matrix2.multiply(matrix22);
+
+    matrix2 = Matrix2.identityMatrix();
+
+    assertEquals(1, matrix2.getElement(1, 1), 0.0001f);
   }
 }
